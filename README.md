@@ -50,6 +50,8 @@ This command launches the React frontend app, typically accessible at `http://lo
 
 npx nx test <project-name>
 
+npx nx run-many --target=test --passWithNoTests //To run all the tests
+
 npx nx build <project-name>
 
 ```
