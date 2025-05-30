@@ -1,0 +1,78 @@
+{
+  "name": "@collinson-test/weather-ranking-api",
+  "version": "0.0.1",
+  "private": true,
+  "nx": {
+    "targets": {
+      "build": {
+        "executor": "@nx/esbuild:esbuild",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "platform": "node",
+          "outputPath": "activity-forecast-api/dist",
+          "format": [
+            "cjs"
+          ],
+          "bundle": false,
+          "main": "activity-forecast-api/src/main.ts",
+          "tsConfig": "activity-forecast-api/tsconfig.app.json",
+          "assets": [
+            "activity-forecast-api/src/assets"
+          ],
+          "esbuildOptions": {
+            "sourcemap": true,
+            "outExtension": {
+              ".js": ".js"
+            }
+          }
+        },
+        "configurations": {
+          "development": {},
+          "production": {
+            "generateLockfile": true,
+            "esbuildOptions": {
+              "sourcemap": false,
+              "outExtension": {
+                ".js": ".js"
+              }
+            }
+          }
+        }
+      },
+      "serve": {
+        "continuous": true,
+        "executor": "@nx/js:node",
+        "defaultConfiguration": "development",
+        "dependsOn": [
+          "build"
+        ],
+        "options": {
+          "buildTarget": "@collinson-test/weather-ranking-api:build",
+          "runBuildTargetDependencies": false
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "@collinson-test/weather-ranking-api:build:development"
+          },
+          "production": {
+            "buildTarget": "@collinson-test/weather-ranking-api:build:production"
+          }
+        }
+      },
+      "test": {
+        "options": {
+          "passWithNoTests": true
+        }
+      },
+      "docker-build": {
+        "dependsOn": [
+          "build"
+        ],
+        "command": "docker build -f activity-forecast-api/Dockerfile . -t @collinson-test/activity-forecast-api"
+      }
+    }
+  }
+}

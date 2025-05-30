@@ -1,0 +1,38 @@
+{
+  "extends": "../tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "types": [
+      "node"
+    ],
+    "rootDir": "src",
+    "tsBuildInfoFile": "dist/tsconfig.app.tsbuildinfo"
+  },
+  "include": [
+    "src/**/*.ts"
+  ],
+  "exclude": [
+    "out-tsc",
+    "dist",
+    "jest.config.ts",
+    "src/**/*.spec.ts",
+    "src/**/*.test.ts",
+    "eslint.config.js",
+    "eslint.config.cjs",
+    "eslint.config.mjs"
+  ],
+  "references": [
+    {
+      "path": "../packages/weather-ranking/tsconfig.lib.json"
+    },
+    {
+      "path": "../packages/types/tsconfig.lib.json"
+    },
+    {
+      "path": "../packages/http/tsconfig.lib.json"
+    },
+    {
+      "path": "../packages/weather-provider/tsconfig.lib.json"
+    }
+  ]
+}

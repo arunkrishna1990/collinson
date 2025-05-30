@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 2rem;
+  background: #f9f9f9;
+}
+
+.app-container {
+  max-width: 800px;
+  margin: auto;
+}
+
+.location-search input {
+  padding: 0.5rem;
+  margin-right: 0.5rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  cursor: pointer;
+  padding: 0.25rem;
+  background: #eee;
+  margin: 0.25rem 0;
+  border-radius: 4px;
+}
+
+.forecast-day {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 8px;
+}
+
+.forecast-day ul li {
+  margin-left: 1rem;
+}

@@ -1,0 +1,25 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compileOnSave": false,
+  "files": [],
+  "references": [
+    {
+      "path": "./weather-ranking-api"
+    },
+    {
+      "path": "./web"
+    },
+    {
+      "path": "./packages/types"
+    },
+    {
+      "path": "./packages/http"
+    },
+    {
+      "path": "./packages/weather-provider"
+    },
+    {
+      "path": "./packages/weather-ranking"
+    }
+  ]
+}

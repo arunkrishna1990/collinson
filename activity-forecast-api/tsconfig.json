@@ -1,0 +1,25 @@
+{
+  "extends": "../tsconfig.base.json",
+  "files": [],
+  "include": [],
+  "references": [
+    {
+      "path": "../packages/weather-ranking"
+    },
+    {
+      "path": "../packages/types"
+    },
+    {
+      "path": "../packages/http"
+    },
+    {
+      "path": "../packages/weather-provider"
+    },
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.spec.json"
+    }
+  ]
+}

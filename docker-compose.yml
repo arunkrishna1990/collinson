@@ -1,0 +1,25 @@
+version: "3.8"
+
+services:
+  redis-primary:
+    container_name: redis-primary
+    image: redis:latest
+    command: /bin/sh -c "redis-server --requirepass pass --port 6379"
+    ports:
+      - 6379:6379
+    networks:
+      - collinson
+
+  redis-replica:
+    container_name: redis-replica
+    image: redis:latest
+    command: /bin/sh -c "redis-server --slaveof redis-primary 6379 --appendonly yes --requirepass pass --masterauth pass"
+    ports:
+      - 6378:6379
+    depends_on:
+      - redis-primary
+    networks:
+      - collinson
+
+networks:
+  collinson:
